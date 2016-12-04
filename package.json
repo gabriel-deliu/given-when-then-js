@@ -1,0 +1,25 @@
+{
+  "name": "given-when-then-js",
+  "version": "1.0.0",
+  "description": "Basic given when then test helper",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabriel-deliu/given-when-then-js.git"
+  },
+  "keywords": [
+    "given",
+    "when",
+    "then",
+    "test"
+  ],
+  "author": "Gabriel Deliu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gabriel-deliu/given-when-then-js/issues"
+  },
+  "homepage": "https://github.com/gabriel-deliu/given-when-then-js#readme"
+}
