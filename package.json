@@ -1,6 +1,6 @@
 {
   "name": "given-when-then-js",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Basic given when then test helper",
   "main": "index.js",
   "dependencies":{
@@ -20,7 +20,10 @@
     "then",
     "test"
   ],
-  "author": "Gabriel Deliu",
+  "author": { 
+    "name":"Gabriel Deliu",
+    "email": "dcgro@yahoo.com"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/gabriel-deliu/given-when-then-js/issues"
