@@ -1,10 +1,14 @@
 {
   "name": "given-when-then-js",
-  "version": "1.0.0",
+  "version": "0.1.1",
   "description": "Basic given when then test helper",
   "main": "index.js",
+  "dependencies":{
+    "mocha": "2.4.5",
+    "chai": "3.5.0"
+  },
   "scripts": {
-    "test": "test"
+     "test": "./node_modules/.bin/mocha --reporter spec"
   },
   "repository": {
     "type": "git",
