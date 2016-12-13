@@ -1,6 +1,6 @@
 {
   "name": "given-when-then-js",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Basic given when then test helper",
   "main": "index.js",
   "dependencies":{
