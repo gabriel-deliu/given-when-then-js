@@ -13,7 +13,7 @@ var given = (function(){
 			receivedValue = evalValue(value);	
 		}catch(ex){
 			console.log(ex);
-			throw 'Given function failed ' + (message || '');
+			throw 'Given function failed('+message+'): ' +  ex;
 		}
 
 		return {
@@ -29,7 +29,7 @@ var given = (function(){
 			try{
 				whenValue = whenFunc(value);	
 			}catch(ex){
-				throw 'When function failed ' + (message || '');
+				throw 'When function failed('+message+'): ' + ex;
 			}
 
 			return {
@@ -45,11 +45,11 @@ var given = (function(){
 			try{
 				thenValue = thenFunc(value);	
 			}catch(ex){
-				throw 'Then function failed ' + (message || '');
+				throw 'Then function failed('+message+'): ' + ex;
 			}			
 			
 			if(thenValue === false){
-				throw 'Then condition failed ' + (message || '');
+				throw 'Then condition failed('+message+'): ' + ex;
 			}
 		};
 	};

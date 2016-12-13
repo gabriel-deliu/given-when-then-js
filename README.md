@@ -13,7 +13,7 @@ it('should do a basic flow', () => {
 	var givenValue = 1;
 	var whenValue = 2;
 
-	given(givenValue, "given a baisc value")
+	given(givenValue, "given a basic value")
 		.when(function(value){
 			expect(value).to.equal(givenValue);
 			return whenValue;
