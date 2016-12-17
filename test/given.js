@@ -1,4 +1,4 @@
-import given from 'index.js';
+var given = require.main.require('index.js');
 var expect = require('chai').expect;
 
 describe('Give', () => {
