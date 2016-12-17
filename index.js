@@ -49,7 +49,7 @@ var given = (function(){
 			}			
 			
 			if(thenValue === false){
-				throw 'Then condition failed('+message+'): ' + ex;
+				throw 'Then condition failed('+message+')';
 			}
 		};
 	};
@@ -57,4 +57,4 @@ var given = (function(){
 	return given;
 })();
 
-exports.given = given;
+module.exports = given;

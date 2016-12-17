@@ -1,8 +1,5 @@
-var gwt = require.main.require('index.js');
-var chai = require('chai');
-
-var given = gwt.given;
-var expect = chai.expect;
+import given from 'index.js';
+var expect = require('chai').expect;
 
 describe('Give', () => {
 
@@ -77,6 +74,7 @@ describe('Give', () => {
 		var getGivenExMessage = (message, exMessage) => `Given function failed(${message}): ${exMessage}`;
 		var getWhenExMessage = (message, exMessage) => `When function failed(${message}): ${exMessage}`;
 		var getThenExMessage = (message, exMessage) => `Then function failed(${message}): ${exMessage}`;
+		var getTheConditionExMessage = (message) => `Then condition failed(${message})`;
 
 		it('should wrap given exceptions', () => {
 			var givenValue = 1;
@@ -108,6 +106,16 @@ describe('Give', () => {
 				.then(function(value){
 					throw exMessage;
 				}, message)).to.throw(getThenExMessage(message, exMessage));
+		});
+
+		it('should throw exception when then return value is false', () => {
+			var givenValue = 1;
+			var message = 'Everything will be fine';			
+
+			expect(() => given(givenValue, "given a basic value")
+				.then(function(value){
+					return false;
+				}, message)).to.throw(getTheConditionExMessage(message));
 		});
 	});
 });

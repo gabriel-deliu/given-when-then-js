@@ -3,11 +3,13 @@ basic given when then test helper [Javascript]
 
 # how to use
 ```
-var gwt = require('given-when-then-js');
-var chai = require('chai');
+var given = require('given-when-then-js');
+var expect = require('chai').expect;
 
-var given = gwt.given;
-var expect = chai.expect;
+//alternativley with ES6 via transpilers
+//import given from 'given-when-then-js';
+//import { expect } from 'chai';
+
 ...
 it('should do a basic flow', () => {
 	var givenValue = 1;
