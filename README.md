@@ -30,4 +30,4 @@ it('should do a basic flow', () => {
 });
 ```
 # see also
-[Java 8 version - given-when-then](https://github.com/gabriel-deliu/given-when-then)
+[Java 8 version: given-when-then](https://github.com/gabriel-deliu/given-when-then)
