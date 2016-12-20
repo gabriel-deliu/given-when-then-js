@@ -29,3 +29,5 @@ it('should do a basic flow', () => {
 		}, "when value should be passed to then");
 });
 ```
+# see also
+[Java 8 version - given-when-then](https://github.com/gabriel-deliu/given-when-then)
