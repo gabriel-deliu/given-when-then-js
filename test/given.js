@@ -92,6 +92,10 @@ describe('Give', () => {
 			expect(() => given(value => {
 					throw exMessage;
 			}, message)).to.throw(getGivenExMessage(message, exMessage));
+
+			expect(() => given(value => {
+					throw exMessage;
+			})).to.throw(getGivenExMessage('', exMessage));
 		});
 
 		it('should wrap when exceptions', () => {
@@ -103,6 +107,11 @@ describe('Give', () => {
 				.when(value => {
 					throw exMessage;
 				}, message)).to.throw(getWhenExMessage(message, exMessage));
+
+			expect(() => given(givenValue, "given a basic value")
+				.when(value => {
+					throw exMessage;
+				})).to.throw(getWhenExMessage('', exMessage));
 		});
 
 		it('should wrap then exceptions', () => {
@@ -114,6 +123,11 @@ describe('Give', () => {
 				.then(value => {
 					throw exMessage;
 				}, message)).to.throw(getThenExMessage(message, exMessage));
+
+			expect(() => given(givenValue, "given a basic value")
+				.then(value => {
+					throw exMessage;
+				})).to.throw(getThenExMessage('', exMessage));
 		});
 
 		it('should throw exception when then return value is false', () => {
@@ -124,6 +138,12 @@ describe('Give', () => {
 				.then(value => {
 					return false;
 				}, message)).to.throw(getTheConditionExMessage(message));
+
+			expect(() => given(givenValue, "given a basic value")
+				.then(value => {
+					return false;
+				})).to.throw(getTheConditionExMessage(''));
 		});
+
 	});
 });
