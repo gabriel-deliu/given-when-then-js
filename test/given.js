@@ -5,16 +5,24 @@ describe('Give', () => {
 
 	describe('Happy flow test', () => {
 
+		it('runs in the most basic form', () => {
+			given(1)
+				.when(value => 2)
+				.then(value => value == 2);
+		});
+
 		it('should do a basic flow', () => {
 			var givenValue = 1;
 			var whenValue = 2;
 
 			given(givenValue, "given a basic value")
-				.when(function(value){
+				.when(value => {
 					expect(value).to.equal(givenValue);
+					/*perform action and return result*/
 					return whenValue;
 				}, "given value should be passed to when")
-				.then(function(value){
+				.then(value => {
+					/*check if the result matches the expected result*/
 					expect(value).to.equal(whenValue);
 				}, "when value should be passed to then");
 		});
@@ -24,11 +32,11 @@ describe('Give', () => {
 			var whenValue = 'one';
 
 			given(givenValue, "given an integer")
-				.when(function(value){
+				.when(value => {
 					expect(value).to.equal(givenValue);
 					return whenValue;
 				}, "given value should be received")
-				.then(function(value){
+				.then(value => {
 					expect(value).to.equal(whenValue);
 				}, "when value should be passed to then");
 		});
@@ -37,7 +45,7 @@ describe('Give', () => {
 			var givenValue = 1;
 
 			given(givenValue, "given an integer")
-				.then(function(value){
+				.then(value => {
 					expect(value).to.equal(givenValue);
 				}, "given value should be passed to then");
 		});
@@ -49,19 +57,19 @@ describe('Give', () => {
 			var whenValue3 = 'three';
 
 			given(givenValue, "given an integer")
-				.when(function(value){
+				.when(value => {
 					expect(value).to.equal(givenValue);
 					return whenValue1;
 				}, "given value should be received")
-				.when(function(value){
+				.when(value => {
 					expect(value).to.equal(whenValue1);
 					return whenValue2;
 				}, "value 1 should be received")
-				.when(function(value){
+				.when(value => {
 					expect(value).to.equal(whenValue2);
 					return whenValue3;
 				}, "value 2 should be received")
-				.then(function(value){
+				.then(value => {
 					expect(value).to.equal(whenValue3);
 				}, "when value should be passed to then");
 		});
@@ -81,7 +89,7 @@ describe('Give', () => {
 			var message = 'Everything will be fine';
 			var exMessage = 'Something bad ...';
 
-			expect(() => given(function(value){
+			expect(() => given(value => {
 					throw exMessage;
 			}, message)).to.throw(getGivenExMessage(message, exMessage));
 		});
@@ -92,7 +100,7 @@ describe('Give', () => {
 			var exMessage = 'Something bad ...';
 
 			expect(() => given(givenValue, "given a basic value")
-				.when(function(value){
+				.when(value => {
 					throw exMessage;
 				}, message)).to.throw(getWhenExMessage(message, exMessage));
 		});
@@ -103,7 +111,7 @@ describe('Give', () => {
 			var exMessage = 'Something bad ...';
 
 			expect(() => given(givenValue, "given a basic value")
-				.then(function(value){
+				.then(value => {
 					throw exMessage;
 				}, message)).to.throw(getThenExMessage(message, exMessage));
 		});
@@ -113,7 +121,7 @@ describe('Give', () => {
 			var message = 'Everything will be fine';			
 
 			expect(() => given(givenValue, "given a basic value")
-				.then(function(value){
+				.then(value => {
 					return false;
 				}, message)).to.throw(getTheConditionExMessage(message));
 		});
